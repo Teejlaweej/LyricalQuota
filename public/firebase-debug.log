@@ -1,0 +1,44 @@
+[debug] [2018-06-15T23:00:18.648Z] ----------------------------------------------------------------------
+[debug] [2018-06-15T23:00:18.651Z] Command:       /usr/local/bin/node /Users/tj/.npm-global/bin/firebase serve
+[debug] [2018-06-15T23:00:18.651Z] CLI Version:   3.18.6
+[debug] [2018-06-15T23:00:18.651Z] Platform:      darwin
+[debug] [2018-06-15T23:00:18.651Z] Node Version:  v10.4.1
+[debug] [2018-06-15T23:00:18.652Z] Time:          Fri Jun 15 2018 16:00:18 GMT-0700 (Pacific Daylight Time)
+[debug] [2018-06-15T23:00:18.652Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-06-15T23:00:18.790Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-06-15T23:00:18.790Z] > authorizing via signed-in user
+[debug] [2018-06-15T23:00:18.793Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-06-15T23:00:18.793Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token:
+   '1/rtMX_wh7FMjry5mvwpeoIgIvDQKuXnR87KlR7cV-cQ0UP5n-dgz58U_V5AQ-cOBa',
+  client_id:
+   '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope:
+   'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Fri Jun 15 2018 16:00:18 GMT-0700 (Pacific Daylight Time)
+[debug] [2018-06-15T23:00:19.112Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-15T23:00:19.673Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/lyricalquota  
+  
+ Fri Jun 15 2018 16:00:19 GMT-0700 (Pacific Daylight Time)
+[debug] [2018-06-15T23:00:20.149Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-15T23:00:20.150Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/lyricalquota/tokens  
+  
+ Fri Jun 15 2018 16:00:20 GMT-0700 (Pacific Daylight Time)
+[debug] [2018-06-15T23:00:20.548Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-15T23:00:20.549Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/lyricalquota  
+  
+ Fri Jun 15 2018 16:00:20 GMT-0700 (Pacific Daylight Time)
+[debug] [2018-06-15T23:00:21.256Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/tj/Documents/Develop/WebDev/LyricalQuota'...
+[info] 
+[debug] [2018-06-15T23:00:21.258Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/1016091053243/clients/_:getWebAppConfig  
+  
+ Fri Jun 15 2018 16:00:21 GMT-0700 (Pacific Daylight Time)
+[debug] [2018-06-15T23:00:21.870Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
+
