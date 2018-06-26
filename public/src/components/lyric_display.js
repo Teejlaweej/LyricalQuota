@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 
+
 class LyricDisplay extends Component {
 
   //THESE RENDER FUNCTIONS ARE MORE FOR MAKING A LIST BY USING MAP FUNCTION
@@ -14,13 +15,16 @@ class LyricDisplay extends Component {
     return <a href={artistData.artist_share_url} target="_blank"> Full lyrics </a>
   }
   */
+  constructor (props) {
+    super(props);
+
+    this.state = {parsedLyrics: []};
+  }
 
   render() {
     if (!this.props.track || !this.props.lyric) {
       return null
     }
-
-    console.log("trackprop", this.props.track);
 
     return (
       <div>
