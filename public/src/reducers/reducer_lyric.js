@@ -1,4 +1,4 @@
-import { FETCH_LYRIC } from '../actions/index';
+import { FETCH_LYRIC } from '../actions/lyric_action';
 
 export default function (state = null, action) {
 

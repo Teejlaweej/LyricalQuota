@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchTrack, fetchLyric } from '../actions/index';
+import { fetchTrack } from '../actions/index';
+import { fetchLyric } from '../actions/lyric_action';
 
 class SearchBar extends Component {
   constructor(props){
@@ -23,8 +24,8 @@ class SearchBar extends Component {
 
     //fetch song data
 
-    this.props.fetchLyric(this.state.term);
     this.props.fetchTrack(this.state.term);
+    this.props.fetchLyric(this.state.term);
     this.setState({term: ''})
   }
 
