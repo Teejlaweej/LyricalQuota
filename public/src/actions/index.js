@@ -13,22 +13,38 @@ function randomTrack(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-export var selectTrack;
+function getTrackList(artist) {
 
-export function fetchTrack(artist) {
   var url = `${ROOT_URL}artist.search&q_artist=${artist}&page_size=20&` + API_KEY;
-  var tracknum = randomTrack(100);
-  const request = axios.get(url)
+  var request = axios.get(url)
   .then((response) => {
+
       return axios.get(`${ROOT_URL}track.search&page_size=100&f_artist_id=
         ${response.data.message.body.artist_list[0].artist.artist_id}` +
         '&s_track_rating=desc&' + API_KEY)
   })
+
+  console.log("request", request);
+  return request;
+}
+
+export var selectTrack;
+
+export function fetchTrack(artist) {
+  var tracknum = randomTrack(100);
+  const request = getTrackList(artist)
   .then((response) => {
-    return response.data.message.body.track_list[selectTrack]
-  });
+    console.log(response.data.message.body.track_list);
+    console.log("tracknum", tracknum);
+    if (response.data.message.body.track_list[tracknum].track.has_lyrics == 0){
+      tracknum += 1;
+    }
+
+    return response.data.message.body.track_list[tracknum]
+  });;
 
   selectTrack = tracknum;
+
   //Used for non asynchronized calls
   return {
     type: FETCH_TRACK,

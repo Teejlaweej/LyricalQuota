@@ -1,3 +1,57 @@
+html, body {
+  margin: auto 10px;
+  width: auto;
+  height: 100%;
+  overflow: hidden;
+}
+
 q {
-  font-size: 25px;
+  font-size: 50px;
+}
+
+.helpScreen {
+  position: absolute;
+  width: 1000px;
+  height: 250px;
+  top: 40%;
+  left: 15%;
+  margin-left: -50px;
+  margin-top: -25px;
+  text-align: center;
+}
+
+.trackInfo {
+  text-align: center;
+}
+
+.lyrics {
+  position: fixed;
+  width: 1000px;
+  height: 250px;
+  top: 25%;
+  left: 15%;
+  margin-left: -50px;
+  text-align: center;
+}
+
+.link {
+  text-align: center;
+  position: fixed;
+  color: #FFEFD5;
+  bottom: 100px;
+  left: 47.5%;
+}
+
+/*search bar*/
+/*
+.input-group{
+  position: fixed;
+  left: 30%;
+  color: grey;
+}
+*/
+.searchBar {
+  position: fixed;
+  left:40%;
+  bottom: 50px;
 }
