@@ -25,23 +25,22 @@ export function fetchCover(artist) {
   const request = getTrack(artist)
   .then((response) => {
     var trackName = response.track.track_name;
-    trackName = trackName.split(" ", 3);
-    //console.log("split", trackName);
-    trackName = trackName.join(" ");
-    //console.log(trackName);
-    return axios.get(`${ROOT_URL}` + trackName + response.track.artist_name);
+    trackName = trackName.split("-");
+    trackName = trackName[0].split("(");
+
+    console.log("[0]", trackName[0]);
+    return axios.get(`${ROOT_URL}` + trackName[0] + " " + response.track.artist_name);
   })
   .then((response) => {
-    if (response.data.response.hits.length == 0)
+    if (response.data.response.hits.length == 0 || !response.data)
     {
-      return null;
+      return null
     }
-    console.log("response", response);
-    return response;
+    return response
   });
 
-  if (!request)
-  {
+  if (!request){
+    console.log("null");
     return {type: FAILED_FETCH, payload: request};
   }
 

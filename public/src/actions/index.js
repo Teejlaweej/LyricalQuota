@@ -40,7 +40,7 @@ export function getTrack(artist) {
     if (response.data.message.body
       .track_list[selectTrack]
       .track.has_lyrics == 0){
-      tracknum += 1;
+      selectTrack += 1;
     }
     return response.data.message.body.track_list[selectTrack]
   });

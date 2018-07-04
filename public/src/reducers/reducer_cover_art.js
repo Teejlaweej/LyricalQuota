@@ -1,4 +1,4 @@
-import { FETCH_COVER } from '../actions/cover_art_action';
+import { FETCH_COVER, FAILED_FETCH } from '../actions/cover_art_action';
 
 export default function (state = null, action) {
 
@@ -6,7 +6,7 @@ export default function (state = null, action) {
   case FETCH_COVER:
     console.log(action);
     return action.payload.data.response.hits[0].result.header_image_url;
-  case 'FAILED_FETCH':
+  case FAILED_FETCH:
     return state;
   }
   return state;
