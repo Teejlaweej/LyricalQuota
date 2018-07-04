@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const API_KEY = 'apikey=a2560a1e8bb98049e2506a3aa30edaf0';
-const ROOT_URL = 'http://api.musixmatch.com/ws/1.1/';
+export const API_KEY = 'apikey=a2560a1e8bb98049e2506a3aa30edaf0';
+export const ROOT_URL = 'http://api.musixmatch.com/ws/1.1/';
 
 /*const TOKEN = dajq9AwtWy_vuffymXP2VL7FhNIoMtfol7WqraNHIBNSGXo36kGmHNhtS7Hq7QCl*/
 
@@ -13,38 +13,44 @@ function randomTrack(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-function getTrackList(artist) {
+//export this function as a helper function for searching the artists tracks
+export function getTrackList(artist) {
 
   var url = `${ROOT_URL}artist.search&q_artist=${artist}&page_size=20&` + API_KEY;
   var request = axios.get(url)
   .then((response) => {
-
       return axios.get(`${ROOT_URL}track.search&page_size=100&f_artist_id=
         ${response.data.message.body.artist_list[0].artist.artist_id}` +
         '&s_track_rating=desc&' + API_KEY)
-  })
+  });
 
-  console.log("request", request);
   return request;
 }
 
-export var selectTrack;
-
-export function fetchTrack(artist) {
-  var tracknum = randomTrack(100);
+//grabs one random track from the artists tracks list
+export function getTrack(artist) {
   const request = getTrackList(artist)
   .then((response) => {
-    console.log(response.data.message.body.track_list);
-    console.log("tracknum", tracknum);
-    if (response.data.message.body.track_list[tracknum].track.has_lyrics == 0){
+    //chooses a random track based on how many songs the artist has
+    console.log("Max tracklist length:", response.data.message.body.track_list.length - 1)
+    var selectTrack = randomTrack(response.data.message.body.track_list.length - 1)
+    console.log("st", selectTrack)
+
+    //checks if the song  has lyrics
+    if (response.data.message.body
+      .track_list[selectTrack]
+      .track.has_lyrics == 0){
       tracknum += 1;
     }
+    return response.data.message.body.track_list[selectTrack]
+  });
 
-    return response.data.message.body.track_list[tracknum]
-  });;
+  return request;
+}
 
-  selectTrack = tracknum;
-
+export function fetchTrack(artist) {
+  const request = getTrack(artist);
+  console.log("fetchTrack", request);
   //Used for non asynchronized calls
   return {
     type: FETCH_TRACK,
@@ -52,7 +58,6 @@ export function fetchTrack(artist) {
   };
 
 }
-
 
 /*
 export function fetchLyric(artist) {

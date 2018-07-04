@@ -4,17 +4,30 @@ import { connect } from 'react-redux';
 //Lyric display only grabs the information text that needs to be displayed
 //onto the screen. Track name, artist name, lyrics, and link
 
-
 function randomLyric(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
+var displayed = false;
+
 class LyricDisplay extends Component {
+
+
+  constructor (props) {
+    super(props);
+
+    this.displayInfo = this.displayInfo.bind(this);
+  }
 
   displayInfo() {
     if (this.props.track.has_lyrics == 0){
       return null;
     }
+
+    var trackName = this.props.track.track_name;
+    trackName = trackName.split("-");
+    trackName = trackName[0].split("(");
+    this.props.track.track_name = trackName[0];
     //returns the track name and artist if available
     return (
       <header>
@@ -36,7 +49,7 @@ class LyricDisplay extends Component {
     for (var i = 0; i < 3; i++){
       lyrics.pop();
     }
-    console.log(lyrics);
+    //console.log(lyrics);
     var line = randomLyric(lyrics.length - 1);
 
     //checks to make sure that the random line grabbed isn't an empty s_track_rating
@@ -58,22 +71,21 @@ class LyricDisplay extends Component {
         <div className="link">
           <a href={this.props.track.track_share_url} target="_blank"> Full lyrics </a>
         </div>
+        <div className="copyright">
+          Lyrics powered by www.musixmatch.com.
+        </div>
       </section>
     );
-  }
-
-  constructor (props) {
-    super(props);
-
-    this.state = {parsedLyrics: []};
   }
 
   render() {
     if (!this.props.track || !this.props.lyric) {
       return (
-        <h1 className="helpScreen"> SEARCH FOR AN ARTIST FOR A RANDOM QUOTE FROM THEIR SONGS </h1>
+        <h1 className="helpScreen"> SEARCH AN ARTIST FOR A QUOTE FROM THEIR SONGS </h1>
       )
     }
+
+    displayed = true;
 
     return (
       <div>

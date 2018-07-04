@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import SearchBar from '../containers/search_bar';
 import LyricDisplay from '../components/lyric_display';
-import * as firebase from 'firebase';
+import CoverDisplay from '../components/cover_display';
 
 export default class App extends Component {
   render() {
     return (
-      <div>
+      <div className="app">
         <LyricDisplay />
         <SearchBar />
+        <CoverDisplay />
+
       </div>
     );
   }

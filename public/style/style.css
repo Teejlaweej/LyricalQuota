@@ -1,12 +1,21 @@
-html, body {
+html {
   margin: auto 10px;
   width: auto;
   height: 100%;
   overflow: hidden;
+  background: #FFFCD0;
+}
+
+.app {
+  height: 0;
+  background: #FFFCD0;
 }
 
 q {
   font-size: 50px;
+  color: white;
+  text-shadow: 3px 3px black
+
 }
 
 .helpScreen {
@@ -42,6 +51,21 @@ q {
   left: 47.5%;
 }
 
+.image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  width: 350px;
+  height: 350px;
+}
+
+.copyright {
+  position: fixed;
+  bottom: 0px;
+  font-size: 10px;
+  left: 42.5%
+}
 /*search bar*/
 /*
 .input-group{

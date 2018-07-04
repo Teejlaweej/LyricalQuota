@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchTrack } from '../actions/index';
 import { fetchLyric } from '../actions/lyric_action';
-import {Glyphicon} from 'react-bootstrap';
+import { fetchCover } from '../actions/cover_art_action';
+import { trackArtist, trackName } from '../reducers/reducer_track';
 
 class SearchBar extends Component {
   constructor(props){
@@ -19,7 +20,6 @@ class SearchBar extends Component {
 
   // changes the state of the app, making the term equal to the value
   onInputChange (event) {
-    console.log(event.target.value);
     this.setState({term: event.target.value});
   }
 
@@ -28,9 +28,13 @@ class SearchBar extends Component {
     //doesn't rerender every time somethings typed
     event.preventDefault();
 
+
+    console.log(this.state.term);
     //fetch song data, imported actions
     this.props.fetchTrack(this.state.term);
     this.props.fetchLyric(this.state.term);
+    this.props.fetchCover(this.state.term);
+
     //reset state
     this.setState({term: ''})
   }
@@ -58,7 +62,7 @@ class SearchBar extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchTrack, fetchLyric }, dispatch)
+  return bindActionCreators({ fetchTrack, fetchLyric, fetchCover }, dispatch)
 }
 
 export default connect (null, mapDispatchToProps)(SearchBar);
