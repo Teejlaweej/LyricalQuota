@@ -4,10 +4,12 @@ export default function (state = null, action) {
 
   switch (action.type) {
   case FETCH_COVER:
-    console.log(action);
+    console.log("ACTION",action);
     return action.payload.data.response.hits[0].result.header_image_url;
+  //handles searches where can't find trackID
   case FAILED_FETCH:
-    return state;
+    console.log("FAILED");
+    return null;
   }
   return state;
 }

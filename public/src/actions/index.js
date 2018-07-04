@@ -32,9 +32,7 @@ export function getTrack(artist) {
   const request = getTrackList(artist)
   .then((response) => {
     //chooses a random track based on how many songs the artist has
-    console.log("Max tracklist length:", response.data.message.body.track_list.length - 1)
     var selectTrack = randomTrack(response.data.message.body.track_list.length - 1)
-    console.log("st", selectTrack)
 
     //checks if the song  has lyrics
     if (response.data.message.body
@@ -44,13 +42,11 @@ export function getTrack(artist) {
     }
     return response.data.message.body.track_list[selectTrack]
   });
-
   return request;
 }
 
 export function fetchTrack(artist) {
   const request = getTrack(artist);
-  console.log("fetchTrack", request);
   //Used for non asynchronized calls
   return {
     type: FETCH_TRACK,

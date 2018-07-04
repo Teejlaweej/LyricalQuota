@@ -24,10 +24,12 @@ class LyricDisplay extends Component {
       return null;
     }
 
+    //handles long track name, displays the main focus
     var trackName = this.props.track.track_name;
     trackName = trackName.split("-");
     trackName = trackName[0].split("(");
     this.props.track.track_name = trackName[0];
+
     //returns the track name and artist if available
     return (
       <header>
@@ -72,7 +74,7 @@ class LyricDisplay extends Component {
           <a href={this.props.track.track_share_url} target="_blank"> Full lyrics </a>
         </div>
         <div className="copyright">
-          Lyrics powered by www.musixmatch.com.
+          Lyrics powered by www.musixmatch.com | Images powered by genius.com
         </div>
       </section>
     );

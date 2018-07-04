@@ -14,7 +14,7 @@ html {
 q {
   font-size: 50px;
   color: white;
-  text-shadow: 3px 3px black
+  text-shadow: 4px 4px black;
 
 }
 
@@ -31,6 +31,10 @@ q {
 
 .trackInfo {
   text-align: center;
+  font-family: "Impact", sans-serif;
+  color: black;
+  text-shadow: 3px 3px white;
+  font-weight: bolder;
 }
 
 .lyrics {
@@ -41,21 +45,24 @@ q {
   left: 15%;
   margin-left: -50px;
   text-align: center;
+  font-style: oblique;
+  font-weight: bold;
 }
 
 .link {
   text-align: center;
   position: fixed;
   color: #FFEFD5;
-  bottom: 100px;
+  bottom: 90px;
   left: 47.5%;
+  font-style: normal;
 }
 
 .image {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 25px;
+  margin-top: 15px;
   width: 350px;
   height: 350px;
 }
@@ -64,7 +71,8 @@ q {
   position: fixed;
   bottom: 0px;
   font-size: 10px;
-  left: 42.5%
+  left: 36.5%;
+  font-style: normal;
 }
 /*search bar*/
 /*
@@ -76,6 +84,6 @@ q {
 */
 .searchBar {
   position: fixed;
-  left:40%;
+  left:39.5%;
   bottom: 50px;
 }
