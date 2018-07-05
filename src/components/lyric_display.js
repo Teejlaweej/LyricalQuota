@@ -15,8 +15,7 @@ class LyricDisplay extends Component {
 
   constructor (props) {
     super(props);
-
-    this.displayInfo = this.displayInfo.bind(this);
+    
   }
 
   displayInfo() {
@@ -43,7 +42,7 @@ class LyricDisplay extends Component {
 
   //check if the track grabbed has lyrics
   if (this.props.track.has_lyrics == 0){
-    return (<h1 className="helpScreen"> - SONG NOT FOUND -  </h1>);
+    return (<h1 className="helpScreen"> - NO LYRICS FOUND RE-SEARCH -  </h1>);
   }
 
     var lyrics = this.props.lyric.lyrics_body;

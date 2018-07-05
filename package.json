@@ -7,7 +7,9 @@
   "scripts": {
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "deploy": "firebase deploy",
+    "build": "react-scripts build"
   },
   "author": "",
   "license": "ISC",
@@ -22,12 +24,13 @@
   "dependencies": {
     "axios": "^0.18.0",
     "babel-preset-stage-1": "^6.1.18",
-    "firebase": "^5.0.4",
+    "firebase": "^5.2.0",
     "lodash": "^3.10.1",
     "react": "16.3.2",
     "react-bootstrap": "^0.32.1",
     "react-dom": "16.3.2",
     "react-redux": "5.0.7",
+    "react-scripts": "^1.1.4",
     "redux": "4.0.0",
     "redux-promise": "^0.6.0"
   }

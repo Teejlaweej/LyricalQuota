@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 class CoverDisplay extends Component {
 
-
   render() {
     if (!this.props.cover){
       return null;

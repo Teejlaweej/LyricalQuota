@@ -19,6 +19,7 @@ export function fetchCover(artist) {
   var request = axios.get(url)
   .then((response) => {
     //handles long track names for more precise searchers (still makes mistakes)
+    console.log(trackName);
     var name = trackName;
     name = name.split("-");
     name = name[0].split("(");
