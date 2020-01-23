@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-export const API_KEY = 'apikey=a2560a1e8bb98049e2506a3aa30edaf0';
-export const ROOT_URL = 'http://api.musixmatch.com/ws/1.1/';
+
 
 /*const TOKEN = dajq9AwtWy_vuffymXP2VL7FhNIoMtfol7WqraNHIBNSGXo36kGmHNhtS7Hq7QCl*/
 
